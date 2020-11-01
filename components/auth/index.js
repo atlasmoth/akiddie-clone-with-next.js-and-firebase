@@ -13,14 +13,11 @@ Auth.Form = function AuthForm({children,...restProps}){
   </Form>
 }
 
-Auth.Password = function AuthPassword({children,...restProps}){
-  return <Password {...restProps}>
-    {children}
-  </Password>
+Auth.Password = function AuthPassword({value,onChange}){
+  return <Password value = {value} onChange={onChange} type="password" />
 }
 
-Auth.Email = function AuthEmail({children,...restProps}){
-  return <Email {...restProps}>
-    {children}
-  </Email>
+Auth.Email = function AuthEmail({value,onChange}){
+  return <Email value = {value} onChange={onChange}type="text" />
+    
 }
