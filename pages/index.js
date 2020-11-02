@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Header } from '../components'
 // import init from "./../config/firebase"
 
 
@@ -6,14 +7,9 @@ import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div >
-      <Head>
-        <title>Kiddie</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      
-    </div>
+    <Header>
+      <h2>Hello from this side</h2>
+    </Header>
   )
 }
 

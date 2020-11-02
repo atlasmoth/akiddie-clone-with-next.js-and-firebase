@@ -1,23 +1,35 @@
 import React from "react"
-import {Container,Form,Password,Email} from "./auth"
+import {Container,Form,Label,Input} from "./../../styles/Auth.module.css"
+
 
 export default function Auth({children,...restProps}){
-  return <Container {...restProps}>
+  return <div className={Container}>
     {children}
-  </Container>
+  </div>
 }
 
 Auth.Form = function AuthForm({children,...restProps}){
-  return <Form {...restProps}>
+  return <form className={Form}>
     {children}
-  </Form>
+    <div>
+    <button>Submit</button>
+    </div>
+  </form>
 }
 
-Auth.Password = function AuthPassword({value,onChange}){
-  return <Password value = {value} onChange={onChange} type="password" />
+Auth.Password = function AuthPassword({value,handleChange}){
+  
+  return <label htmlFor="password" className={Label}>
+    <h4>Password</h4>
+    <input className={Input} value={value} onChange={e => handleChange(e.target.value)} type="password" />
+  </label>
 }
 
-Auth.Email = function AuthEmail({value,onChange}){
-  return <Email value = {value} onChange={onChange}type="text" />
+Auth.Email = function AuthEmail({value,handleChange}){
+  
+  return <label className={Label} htmlFor="email">
+    <h4>Email</h4>
+    <input className={Input} value={value} onChange={e => handleChange(e.target.value)} type="text" id="email" />
+  </label>
     
 }

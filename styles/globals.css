@@ -24,7 +24,14 @@ a {
 
 input {
   font: inherit;
+  border-radius: 5px;
+  outline: none;
 }
 button {
   padding: 0.5rem 1rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 0.5rem 2rem;
+  font: inherit;
 }
