@@ -1,22 +1,17 @@
 import firebase from "firebase"
 
-process.env;
-const apiKey = process.env.apiKey;
-const authDomain = process.env.authDomain;
-const databaseURL = process.env.databaseURL;
-const projectId = process.env.projectId;
-const storageBucket = process.env.storageBucket;
-const messagingSenderId = process.env.messagingSenderId;
-const appId = process.env.appId;
 
-console.log(process.env)
-    const config = {apiKey,
-      authDomain,
-      databaseURL,
-      projectId,
-      storageBucket,
-      messagingSenderId,
-      appId}
+
+
+    const config = {
+      apiKey: "AIzaSyBjUG4ZGTUnBAWZbKQcuHUrZakNqB_zGyw",
+      authDomain: "kiddie-73a0c.firebaseapp.com",
+      databaseURL: "https://kiddie-73a0c.firebaseio.com",
+      projectId: "kiddie-73a0c",
+      storageBucket: "kiddie-73a0c.appspot.com",
+      messagingSenderId: "657961828603",
+      appId: "1:657961828603:web:9a5070adba109af8eb705e"
+    }
 
       if(firebase.apps.length > 0){
         firebase.app()

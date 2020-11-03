@@ -1,35 +1,33 @@
-import React from "react"
-import {Container,Form,Label,Input} from "./../../styles/Auth.module.css"
+import {useContext} from "react"
+import firebaseCtx from "./../../contexts/firebaseContext"
+import authCtx from "./../../contexts/authContext"
 
 
-export default function Auth({children,...restProps}){
-  return <div className={Container}>
-    {children}
-  </div>
-}
+export default function Auth(){
+  const {firebase} = useContext(firebaseCtx);
+  const {dispatch,state : {authBool}} = useContext(authCtx);
 
-Auth.Form = function AuthForm({children,...restProps}){
-  return <form className={Form}>
-    {children}
-    <div>
-    <button>Submit</button>
-    </div>
-  </form>
-}
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
 
-Auth.Password = function AuthPassword({value,handleChange}){
   
-  return <label htmlFor="password" className={Label}>
-    <h4>Password</h4>
-    <input className={Input} value={value} onChange={e => handleChange(e.target.value)} type="password" />
-  </label>
-}
 
-Auth.Email = function AuthEmail({value,handleChange}){
+  async function handleAuth(e){
+    e.preventDefault()
+    try {
+      if(e.target.name === "login"){
+        await auth.signInWithPopup(provider)
+        // dispatch({type : "auth", authBool : true});
+      }else if(e.target.name === "logout"){
+        await auth.signOut();
+        // dispatch({type : "auth", authBool : false});
+      }
+    } catch (error) {
+      console.table(error)
+    }
+  }
   
-  return <label className={Label} htmlFor="email">
-    <h4>Email</h4>
-    <input className={Input} value={value} onChange={e => handleChange(e.target.value)} type="text" id="email" />
-  </label>
-    
+  return authBool ? <button name="logout" onClick={handleAuth}>Log Out</button> : <button onClick={handleAuth} name="login">
+  Sign In
+</button>
 }

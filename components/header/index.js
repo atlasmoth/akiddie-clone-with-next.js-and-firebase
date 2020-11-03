@@ -2,9 +2,10 @@ import React from "react"
 import Head from 'next/head'
 import {Nav,Ul} from "./../../styles/Header.module.css"
 import Link from "next/link"
+import {Auth} from "./../../components"
 
 
-export default function Header({children}){
+export default function Header({withGoogle,children}){
 
   return <>
   <Head>
@@ -21,9 +22,7 @@ export default function Header({children}){
       
           <ul className={Ul}>
           <li>
-        <Link href="/auth">
-          <a>Signin</a>
-        </Link>
+          <Auth />
       </li>
           </ul>
         </nav>

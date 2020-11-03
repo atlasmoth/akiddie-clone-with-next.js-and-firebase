@@ -35,4 +35,8 @@ button {
   border: none;
   padding: 0.5rem 2rem;
   font: inherit;
+  cursor: pointer;
+}
+button:hover {
+  color: #bbb;
 }
