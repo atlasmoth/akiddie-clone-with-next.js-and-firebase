@@ -1,0 +1,22 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+.Label {
+  display: block;
+}
+.Form {
+  font-size: 1.2rem;
+  background-color: rgb(53, 51, 53);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+}
+.Input {
+  border: none;
+  padding: 0.5rem 1rem;
+  outline: none;
+}

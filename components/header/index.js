@@ -5,7 +5,7 @@ import Link from "next/link"
 import {Auth} from "./../../components"
 
 
-export default function Header({withGoogle,children}){
+export default function Header({children}){
 
   return <>
   <Head>
