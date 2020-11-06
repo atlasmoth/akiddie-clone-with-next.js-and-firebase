@@ -24,13 +24,13 @@ export default function UploadComponent ({firebase,authBool,user}){
        const imageRef = storageRef.child(imageUrl);
       
        const [bookObj,imageObj] = await  Promise.all([bookRef.put(ebook),imageRef.put(image)])
-       
+        console.log(bookObj.task.snapshot.downloadURL)
       await  firebase.firestore().collection("books").add({
           user : user.uid ,
           name,
           description,
-          image : imageObj.metadata.fullPath,
-          ebook : bookObj.metadata.fullPath,
+          image : imageObj.task.uploadUrl_,
+          ebook : bookObj.task.uploadUrl_,
           price 
         })
         

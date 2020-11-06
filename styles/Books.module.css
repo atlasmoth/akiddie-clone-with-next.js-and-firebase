@@ -1,0 +1,17 @@
+.Container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: auto;
+  /* background-color: red; */
+  padding: 1.5rem;
+}
+
+.Book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(53, 51, 53);
+  padding: 1rem;
+  border-radius: 5px;
+}
