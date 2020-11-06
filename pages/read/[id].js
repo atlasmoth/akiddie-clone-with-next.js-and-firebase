@@ -13,12 +13,17 @@ export default function Read(){
   const router = useRouter();
   const {id} = router.query;
   const {firebase} = useContext(firebaseCtx);
-  const {state : {authBool,user}} = useContext(authCtx);
+  const {state : {authBool}} = useContext(authCtx);
   useEffect(() => {
-    firebase.firestore().collection("books").get(id).then(s => console.log(s.docs))
+    const booksRef = firebase.firestore().collection("books")
+
+    booksRef.doc(id).get().then(ref => setBook(ref.data()))
+
+    
+    return () => setBook(null)
   },[])
   
   return <Header>
-    {authBool ? <Display  /> : <h2>Please log in.</h2>}
+    {authBool && book ? <Display book={book} firebase={firebase}  /> : <h2>Please log in.</h2>}
   </Header>
 }
