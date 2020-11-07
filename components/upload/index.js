@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Container,Label,Form,Input} from "./../../styles/Upload.module.css"
+import {useRouter} from "next/router"
 
 
 export default function UploadComponent ({firebase,authBool,user}){
@@ -8,7 +9,9 @@ export default function UploadComponent ({firebase,authBool,user}){
   const [description,setDescription] = useState("");
   const [image,setImage] = useState(null)
   const [ebook,setEbook] = useState(null);
-  const [price,setPrice] = useState(0);
+
+  const router = useRouter()
+
 
 
   async function uploadBook(e){
@@ -31,9 +34,8 @@ export default function UploadComponent ({firebase,authBool,user}){
           description,
           image : await imageObj.ref.getDownloadURL(),
           ebook : await bookObj.ref.getDownloadURL(),
-          price  : Number(price)
         })
-        
+        router.push("/")
       }
     } catch (error) {
       console.table(error)
@@ -51,9 +53,7 @@ export default function UploadComponent ({firebase,authBool,user}){
         setImage(e.target.files[0])
         
       }
-      case "price" : {
-        setPrice(e.target.value)
-      }
+      
       default : {
         return
       }
@@ -75,8 +75,7 @@ export default function UploadComponent ({firebase,authBool,user}){
     <label htmlFor="image" className={Label}>Image</label>
     <input type="file" name="image" id="image" onChange={testHandler} required accept="image/png, image/jpeg" />
     
-    <label htmlFor="price" className={Label}>Price</label>
-    <input type="number" name="price" id="price" min="0"  step="1" onChange={testHandler} required />
+    
 
     <div>
     <button type="submit">Upload</button>

@@ -24,9 +24,8 @@ export default function Books({firebase,user}){
         <h2>{book.name}</h2>
         <h4>{book.description}</h4>
         <div><img src={book.image} alt="Book"/></div>
-        <h4>${book.price}</h4>
         <Link href={`/read/${book.id}`}>
-          <a>Read</a>
+          <a><button>Read</button></a>
         </Link>
         </div>
     })}
