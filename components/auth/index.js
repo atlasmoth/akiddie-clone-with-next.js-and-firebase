@@ -1,6 +1,7 @@
 import {useContext} from "react"
 import firebaseCtx from "./../../contexts/firebaseContext"
 import authCtx from "./../../contexts/authContext"
+import Link from "next/link"
 
 
 export default function Auth(){
@@ -27,7 +28,12 @@ export default function Auth(){
     }
   }
   
-  return authBool ? <button name="logout" onClick={handleAuth}>Log Out</button> : <button onClick={handleAuth} name="login">
+  return authBool ? <>
+  <button name="logout" onClick={handleAuth}>Log Out</button> 
+  <Link href="upload">
+    <a><button>Upload</button></a>
+  </Link>
+  </>: <button onClick={handleAuth} name="login">
   Sign In
 </button>
 }

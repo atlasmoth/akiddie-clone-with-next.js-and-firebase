@@ -10,6 +10,7 @@ import {Container} from "./../../styles/Display.module.css"
 
 
 export default function Read(){
+  
   const [book,setBook] = useState(null)
   const {id} = useRouter().query;
   const {firebase} = useContext(firebaseCtx);

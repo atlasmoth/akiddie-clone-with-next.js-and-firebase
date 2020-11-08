@@ -24,8 +24,10 @@ function MyApp({ Component, pageProps }) {
     const auth = firebase.auth();
     auth.onAuthStateChanged(user => {
       if(user){
+        
         dispatch({type : "auth", authBool : true,user});
       }else{
+        
         dispatch({type : "auth", authBool : false});
       }
     })
@@ -41,10 +43,3 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 
 
-// export async function getServerSideProps() {
-
-  
-//   return {
-//     props: {}, 
-//   }
-// }

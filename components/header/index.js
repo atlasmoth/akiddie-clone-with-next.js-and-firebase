@@ -6,6 +6,7 @@ import {Auth} from "./../../components"
 
 
 export default function Header({children}){
+  
 
   return <>
   <Head>
@@ -17,7 +18,7 @@ export default function Header({children}){
         <nav className={Nav}>
         
         <Link href="/">
-        <h1>Kiddie</h1>
+        <a><h1>Kiddie</h1></a>
         </Link>
       
           <ul className={Ul}>
